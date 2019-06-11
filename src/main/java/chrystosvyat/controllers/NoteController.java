@@ -26,13 +26,19 @@ public class NoteController {
 	}
 
 	@PostMapping("/note")
-	public Note addNote(Note note){
+	public Note addNote(@RequestBody Note note){
 		return service.addNote(note);
 	}
 
 	@DeleteMapping("/note/{id}")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId){
 		service.deleteById(noteId);
+		return ResponseEntity.ok().build();
+	}
+
+	@DeleteMapping("/notes/delete")
+	public ResponseEntity<?> deleteNotes(){
+		service.deleteAll();
 		return ResponseEntity.ok().build();
 	}
 

@@ -30,6 +30,10 @@ public class NoteService {
 		noteRepository.deleteById(noteId);
 	}
 
+	public void deleteAll(){
+		noteRepository.deleteAll();
+	}
+
 	public Note update(Long noteId, Note noteDetails) {
 //		Note n = noteRepository.findById(noteId).get();
 //		n.setTopic(noteDetails.getTopic());
